@@ -5,8 +5,7 @@ import os
 import Tkinter
 import shutil
 import difflib
-#日志保存在当前程序路径
-os.getcwd()
+
 def create_Window():
     top = Tkinter.Tk()
     # 进入消息循环
@@ -23,19 +22,19 @@ def create_Window():
     e1 = Tkinter.StringVar()
     box1 = Tkinter.Entry(top,bg='lightblue',textvariable = e1)
     box1.pack(ipadx=100)
-    e1.set("/home/wangjd/Desktop/standard")
+    e1.set("/var/standard")
     #目标路径
     lable2 = Tkinter.Label(top, text="目标路径：").pack()
     e2 = Tkinter.StringVar()
     box2 = Tkinter.Entry(top,bg='lightblue',textvariable = e2)
     box2.pack(ipadx=100)
-    e2.set("/home/wangjd/Desktop/test")
+    e2.set("/var/test")
     #日志路径
     lable3 = Tkinter.Label(top, text="对比结果文档-生成路径：").pack()
     e3 = Tkinter.StringVar()
     box3 = Tkinter.Entry(top,bg='lightgray', textvariable=e3)
     box3.pack(side='left',ipadx=50)
-    e3.set("/home/wangjd/Desktop/diff")
+    e3.set("/var/diff")
     # 核弹发射按钮
     Tkinter.Button(top, bg='lightgreen', text='开始对比', command=refreshEntry).pack(ipadx=10)
     top.mainloop()
