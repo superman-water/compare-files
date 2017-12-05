@@ -32,14 +32,23 @@ def compary_files(standardFile,original_File,log_path):
     ori=readfile(original_File)
     diff=difflib.HtmlDiff()
     p_txt=diff.make_file(stan,ori,context=True,numlines=0)
+    #------
     # 创建报告文件
     f = open(log_path + "/" + "diff.html", 'a')
     # ............
     f.write("<meta charset='UTF-8'>")
-    f.write("<a>这是" +original_File+"和" +standardFile+ "的对比不同的地方：</a>")
+    f.write("<a>这是"+original_File+"和"+standardFile+ "的对比不同的地方：</a>")
     # 解决中文乱码
     f.write(p_txt)
     f.close()
+    #.............创建log文档
+    d = difflib.Differ()
+    log_diff = d.compare(stan, ori)
+    open_log=open(log_path + "/" + "diff.log", 'a')
+    open_log.write('\n'+"#这是" + fileName + "的对比不同的地方：<->"+'\n')
+    open_log.write('\n'.join(list(log_diff)))
+    open_log.close()
+    #创建log文档方便shell查看
 def show_files(standard_path,ori_path,log_path,len_f1):
     cycle_path=standard_path
     #初始化路径节点
