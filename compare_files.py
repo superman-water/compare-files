@@ -1,6 +1,6 @@
 #-*-coding:utf-8-*-
 #/etc/bin/python
-#"+++Programed by wangjd@2017+++
+#Programed by wangjd@2017
 import os
 import Tkinter
 import shutil
@@ -45,9 +45,11 @@ def main_way(f1,f2,log_path):
         # 创建输出路径
      os.mkdir(log_path)
    else:
-     shutil.rmtree(log_path, ignore_errors=True)
-        # 清空目录
-     os.mkdir(log_path)
+     #shutil.rmtree(log_path, ignore_errors=True)
+     #清空目录
+     #默认禁止删除目录，防止其他问题
+     #os.mkdir(log_path)
+     pass
 
    for root, dirs, files in os.walk(f1):
       for fileName in files:

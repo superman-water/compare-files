@@ -12,9 +12,11 @@ def check_path_exists(folder):
         # 创建输出路径
         os.mkdir(folder)
     else:
-        shutil.rmtree(folder, ignore_errors=True)
+        #shutil.rmtree(folder, ignore_errors=True)
         # 清空目录
-        os.mkdir(folder)
+        #默认禁止删除，防止其他问题
+        #os.mkdir(folder)
+        pass
 def readfile(filename):
     #读取文件内容
     handleFile=open(filename,'r')
